@@ -1,0 +1,53 @@
+#include<bits/stdc++.h>
+using namespace std;
+int n,hs;
+ void heapify(int a[],int i)
+{
+	int l,r,max;
+	l=2*i+1;
+	r=2*i+2;
+	max=i;
+	if(l<=hs&& a[l]>a[max])
+	max=l;
+	if(r<=hs&& a[r]>a[max])
+	max=r;
+	if(i!=max)
+	{
+		swap(a[max],a[i]);
+		heapify(a,max);
+	}
+}
+ void buildheap(int a[])
+{
+	int i;
+	for( i=n/2-1;i>=0;i++)
+	{
+		heapify(a,i);
+	}
+}
+
+void heapsort(int a[])
+{
+buildheap(a);
+	
+	
+}
+int main()
+{
+int i;
+	cout<<"enter the size"<<endl;
+	cin>>n;
+  int a[n];
+	
+	cout<<"enter the element"<<endl;
+	for(i=0;i<n;i++)
+  {
+
+  
+		cin>>a[i];
+  }hs=n-1;
+	heapsort(a);
+	for(i=0;i<n;i++)
+	cout<<a[i]<<" ";
+  return 0;
+}
